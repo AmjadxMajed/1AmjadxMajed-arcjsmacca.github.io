@@ -1,76 +1,95 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>ArcGIS API for JavaScript : Macca Hydrology Analysis </title>
 
-    <style>
-        html,
-        body,
-        #viewDiv {
-            padding: 0;
-            margin: 0;
-            height: 98%;
-            width: 93%;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <link rel="stylesheet" href="https://js.arcgis.com/4.20/esri/themes/light/main.css">
-    <script src="https://js.arcgis.com/4.20/"></script>
+  <title>East of Macca - Hydrology Analysis</title>
 
-    <script>
-        require(["esri/config", "esri/Map", "esri/views/MapView", "esri/layers/FeatureLayer",
-            "esri/widgets/Legend"],
-            function (esriConfig, Map, MapView, FeatureLayer, Legend) {
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-                esriConfig.apiKey = "AAPKee7d3b3a70e7429f90f84b2efbbc0a81RNt5FlFCx1HRlnNxgtJ4dFHj3vRjuazaIkhiDj09XbnSPZqp1x8PowVANc4w3t6p";
-
-                var template = {
-                    title: "Aricd: {arcid} <br>" ,
-                    content: "Grid Code: {grid_code}<br>" +
-                        "From Node: {from_node}<Br>"+
-                            "To Node: {to_node}<Br>"
-                }
-                var mylayer = new FeatureLayer({
-                    // URL to the service
-                    url: "https://services9.arcgis.com/SKX4Ho42BPrgC7Qi/arcgis/rest/services/MapMaccaHyd2_WFL1/FeatureServer",
-                    popupTemplate: template
-
-                });
-
-
-                const map = new Map({
-                    basemap: "topo", // Basemap layer service
-                    layers: [mylayer]
-                });
-
-                const view = new MapView({
-                    map: map,
-                    center: [40.0890426, 21.4867552], // Longitude, latitude
-                    zoom: 11, // Zoom level
-                    container: "viewDiv" // Div element
-                });
-                let legend = new Legend({
-                    view: view,
-                    layerInfos: [{
-                        layer: mylayer,
-                        title: "Legend"
-                    }]
-                });
-
-                view.ui.add(legend, "bottom-right");
-
-               
-                
-            });
-    </script>
+ 
 
 </head>
 
 <body>
-    <div id="viewDiv"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">East of Macca - Hydrology Analysis</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+           
+          </li>
+          <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/amjad-majed-aljadani/">LinkedIn</a></li>
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+
+
+    <!-- Call to Action Well -->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+      <div class="card-body">
+        <p class="text-white m-0">In this project I used DEM in ArcGIS Pro program for the Hydrology Analysis, first I removed the anomalies value,
+          secondly I determined the flow direction of water, thirdly I showed 
+         the places of flow Accumlation, and finally I determined the stream order of the valleys.</p>
+      </div>
+    </div>
+
+    <!-- Content Row -->
+    <div class="card">
+      <div class="card-header">
+        East of Macca - Hydrology Analysis (2D Map)
+      </div>
+      <div class="card-body">
+        <iframe src="arcgis-js-2d.html" frameborder="0" width="1000px" height="500px"></iframe>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        East of Macca - Hydrology Analysis (3D Map)
+      </div>
+      <div class="card-body">
+        <iframe src="arcgis-js-3d.html" frameborder="0" width="1000px" height="500px"></iframe>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Amjad Aljadani Website 2021-7-26</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
